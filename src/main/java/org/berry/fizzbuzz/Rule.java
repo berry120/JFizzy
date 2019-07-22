@@ -9,7 +9,7 @@ package org.berry.fizzbuzz;
  *
  * @author Michael
  */
-public interface FizzBuzzRule {
+public interface Rule {
     
     boolean matches(int n);
     
@@ -17,6 +17,6 @@ public interface FizzBuzzRule {
     
     String getHumanDescription();
     
-    default boolean alreadyCoveredBy(FizzBuzzRule anotherRule) { return this.equals(anotherRule); }
+    default boolean alreadyCoveredBy(Rule anotherRule) { return this.equals(anotherRule); }
     
 }

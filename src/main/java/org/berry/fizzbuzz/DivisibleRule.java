@@ -19,21 +19,21 @@ import lombok.Getter;
  * @author Michael
  */
 @EqualsAndHashCode
-public class DivisibleFizzBuzzRule implements FizzBuzzRule {
+public class DivisibleRule implements Rule {
 
     @Getter
     private final String substitute;
     @Getter
     private final Set<Integer> nums;
 
-    private DivisibleFizzBuzzRule(String substitute, Set<Integer> nums) {
+    private DivisibleRule(String substitute, Set<Integer> nums) {
         this.substitute = substitute;
         this.nums = Collections.unmodifiableSet(nums);
     }
 
-    public static FizzBuzzRule ofAll(String substitute, Integer... nums) {
+    public static Rule ofAll(String substitute, Integer... nums) {
         checkDuplicateEntries(nums);
-        return new DivisibleFizzBuzzRule(substitute, new HashSet<>(Arrays.asList(nums)));
+        return new DivisibleRule(substitute, new HashSet<>(Arrays.asList(nums)));
     }
 
     @Override
@@ -52,10 +52,10 @@ public class DivisibleFizzBuzzRule implements FizzBuzzRule {
     }
 
     @Override
-    public boolean alreadyCoveredBy(FizzBuzzRule rule) {
+    public boolean alreadyCoveredBy(Rule rule) {
         return Optional.of(rule)
-                .filter(r -> r instanceof DivisibleFizzBuzzRule)
-                .map(r -> this.getNums().containsAll(((DivisibleFizzBuzzRule)r).getNums()))
+                .filter(r -> r instanceof DivisibleRule)
+                .map(r -> this.getNums().containsAll(((DivisibleRule)r).getNums()))
                 .orElse(false);
     }
 

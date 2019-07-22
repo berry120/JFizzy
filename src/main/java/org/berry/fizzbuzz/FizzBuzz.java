@@ -15,13 +15,13 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode
 public class FizzBuzz {
 
-    private final List<FizzBuzzRule> rules;
+    private final List<Rule> rules;
 
     /**
      * Our constructor is private; we use static initialisers. It's 2019 and
      * public constructors are no longer trendy.
      */
-    private FizzBuzz(List<FizzBuzzRule> rules) {
+    private FizzBuzz(List<Rule> rules) {
         checkDuplicateRules(rules);
         this.rules = Collections.unmodifiableList(rules);
     }
@@ -32,7 +32,7 @@ public class FizzBuzz {
      * @param rules
      * @return
      */
-    public static FizzBuzz of(FizzBuzzRule... rules) {
+    public static FizzBuzz of(Rule... rules) {
         return new FizzBuzz(Arrays.asList(rules));
     }
 
@@ -54,12 +54,12 @@ public class FizzBuzz {
                 .forEach(consumer);
     }
 
-    private static void checkDuplicateRules(List<FizzBuzzRule> rules) {
+    private static void checkDuplicateRules(List<Rule> rules) {
         if (rules.size() < 2) {
             return;
         }
         for (int i = 1; i < rules.size(); i++) {
-            FizzBuzzRule rule = rules.get(i);
+            Rule rule = rules.get(i);
             rules.subList(0, i).forEach(testRule -> {
                 if (rule.alreadyCoveredBy(testRule)) {
                     throw new IllegalArgumentException("\"" + rule.getHumanDescription() + "\" will never execute, already covered by \"" + testRule.getHumanDescription() + "\"");
