@@ -6,19 +6,20 @@
 package org.berry.fizzbuzz;
 
 import java.util.function.Function;
+import java.util.function.Predicate;
 
 /**
  *
  * @author Michael
  */
 public interface Rule {
-    
-    boolean matches(int n);
-    
+
     Function<Integer, String> getSubstituteFunction();
 
+    Predicate<Integer> getMatchPredicate();
+
     String getHumanDescription();
-    
+
     default String substitute(int n) {
         if (matches(n)) {
             return getSubstituteFunction().apply(n);
@@ -26,7 +27,13 @@ public interface Rule {
             return Integer.toString(n);
         }
     }
-    
-    default boolean alreadyCoveredBy(Rule anotherRule) { return this.equals(anotherRule); }
-    
+
+    default boolean matches(int n) {
+        return getMatchPredicate().test(n);
+    }
+
+    default boolean alreadyCoveredBy(Rule anotherRule) {
+        return this.equals(anotherRule);
+    }
+
 }

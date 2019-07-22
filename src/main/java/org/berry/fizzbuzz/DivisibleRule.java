@@ -11,6 +11,7 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -23,6 +24,8 @@ import lombok.Getter;
 public class DivisibleRule implements Rule {
 
     @Getter
+    private final Predicate<Integer> matchPredicate;
+    @Getter
     private final Function<Integer, String> substituteFunction;
     @Getter
     private final Set<Integer> nums;
@@ -30,10 +33,7 @@ public class DivisibleRule implements Rule {
     private DivisibleRule(Function<Integer, String> substituteFunction, Set<Integer> nums) {
         this.substituteFunction = substituteFunction;
         this.nums = Collections.unmodifiableSet(nums);
-    }
-
-    public static Rule ofAll(String substitute, Integer... nums) {
-        return DivisibleRule.ofAll(n -> substitute, nums);
+        this.matchPredicate = n -> nums.stream().allMatch(r -> n % r == 0);
     }
 
     public static Rule ofAll(Function<Integer, String> substituteFunction, Integer... nums) {
@@ -41,17 +41,15 @@ public class DivisibleRule implements Rule {
         return new DivisibleRule(substituteFunction, new HashSet<>(Arrays.asList(nums)));
     }
 
-    @Override
-    public boolean matches(int n) {
-        return nums.stream().allMatch(r -> n % r == 0);
-
+    public static Rule ofAll(String substitute, Integer... nums) {
+        return DivisibleRule.ofAll(n -> substitute, nums);
     }
 
     @Override
     public boolean alreadyCoveredBy(Rule rule) {
         return Optional.of(rule)
                 .filter(r -> r instanceof DivisibleRule)
-                .map(r -> this.getNums().containsAll(((DivisibleRule)r).getNums()))
+                .map(r -> this.getNums().containsAll(((DivisibleRule) r).getNums()))
                 .orElse(false);
     }
 

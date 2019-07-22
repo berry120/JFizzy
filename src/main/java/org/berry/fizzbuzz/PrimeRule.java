@@ -8,6 +8,7 @@ package org.berry.fizzbuzz;
 import java.math.BigInteger;
 import java.util.Optional;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
@@ -17,12 +18,15 @@ import lombok.Getter;
  */
 @EqualsAndHashCode
 public class PrimeRule implements Rule {
-
+    
+    @Getter
+    private final Predicate<Integer> matchPredicate;
     @Getter
     private final Function<Integer, String> substituteFunction;
 
     private PrimeRule(Function<Integer, String> substituteFunction) {
         this.substituteFunction = substituteFunction;
+        this.matchPredicate = n -> new BigInteger(Integer.toString(n)).isProbablePrime(100);
     }
 
     public static Rule of(String substitute) {
@@ -32,7 +36,7 @@ public class PrimeRule implements Rule {
     public static Rule of(Function<Integer, String> substituteFunction) {
         return new PrimeRule(substituteFunction);
     }
-
+    
     @Override
     public boolean matches(int n) {
         return new BigInteger(Integer.toString(n)).isProbablePrime(100);
