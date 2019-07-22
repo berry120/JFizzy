@@ -23,6 +23,7 @@ Rules are evaluated in the order they're specified.
 - Offers a way to retrieve the result as a `List<String>` rather than passing a `Consumer`, so you can look at that method declaration and feel all smug that you're not using it. (You're using Java 8 after all, who would use that?!)
 
 ## How do I use it?
+[Get set up with Bintray](https://bintray.com/beta/#/berry120/JFizzy?tab=packages), then:
 
 Maven:
 
