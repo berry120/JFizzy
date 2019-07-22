@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/berry120/JFizzy.svg?style=svg)](https://circleci.com/gh/berry120/JFizzy)
+
 # JFizzy
 
 JFizzy is a modern Java library for all things FizzBuzz related, allowing you to write *nice* FizzBuzz code, using a framework, like it's been written in 2019:
