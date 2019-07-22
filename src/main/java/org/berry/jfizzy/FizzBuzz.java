@@ -1,4 +1,4 @@
-package org.berry.fizzbuzz;
+package org.berry.jfizzy;
 
 import java.util.ArrayList;
 import java.util.Arrays;

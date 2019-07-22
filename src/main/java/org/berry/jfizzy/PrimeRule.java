@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.berry.fizzbuzz;
+package org.berry.jfizzy;
 
 import java.math.BigInteger;
 import java.util.Optional;
