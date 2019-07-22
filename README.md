@@ -18,6 +18,7 @@ Rules are evaluated in the order they're specified.
 - Allows other rules to be specified (such as a `PrimeRule`), to try to anticipate any additional ~interview~ requirements that may spontaneously appear after the initial implementation;
 - Rules can take a `Function<Integer, String>` as a parameter instead of a raw string, enabling you to use the number in your output should ~the interviewer~ you require it;
 - Offers some degree of checking if you've got your rules in the wrong order. This can't be *guaranteed* in all cases of course, but it should catch most trivial cases.
+- Offers a way to retrieve the result as a `List<String>` rather than passing a `Consumer`, so you can look at that method declaration and feel all smug that you're not using it. (You're using Java 8 after all, who would use that?!)
 
 ## How do I use it?
 
