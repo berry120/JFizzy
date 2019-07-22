@@ -7,6 +7,7 @@ package org.berry.fizzbuzz;
 
 import java.math.BigInteger;
 import java.util.Optional;
+import java.util.function.Function;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
@@ -18,14 +19,18 @@ import lombok.Getter;
 public class PrimeRule implements Rule {
 
     @Getter
-    private final String substituteText;
+    private final Function<Integer, String> substituteFunction;
 
-    private PrimeRule(String substituteText) {
-        this.substituteText = substituteText;
+    private PrimeRule(Function<Integer, String> substituteFunction) {
+        this.substituteFunction = substituteFunction;
     }
 
     public static Rule of(String substitute) {
-        return new PrimeRule(substitute);
+        return PrimeRule.of(n -> substitute);
+    }
+
+    public static Rule of(Function<Integer, String> substituteFunction) {
+        return new PrimeRule(substituteFunction);
     }
 
     @Override
@@ -35,7 +40,7 @@ public class PrimeRule implements Rule {
 
     @Override
     public String getHumanDescription() {
-        return "Substitute \'" + substituteText + "\' if prime";
+        return "Substitute if prime";
     }
     
     @Override

@@ -10,6 +10,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -22,18 +23,22 @@ import lombok.Getter;
 public class DivisibleRule implements Rule {
 
     @Getter
-    private final String substituteText;
+    private final Function<Integer, String> substituteFunction;
     @Getter
     private final Set<Integer> nums;
 
-    private DivisibleRule(String substituteText, Set<Integer> nums) {
-        this.substituteText = substituteText;
+    private DivisibleRule(Function<Integer, String> substituteFunction, Set<Integer> nums) {
+        this.substituteFunction = substituteFunction;
         this.nums = Collections.unmodifiableSet(nums);
     }
 
     public static Rule ofAll(String substitute, Integer... nums) {
+        return DivisibleRule.ofAll(n -> substitute, nums);
+    }
+
+    public static Rule ofAll(Function<Integer, String> substituteFunction, Integer... nums) {
         checkDuplicateEntries(nums);
-        return new DivisibleRule(substitute, new HashSet<>(Arrays.asList(nums)));
+        return new DivisibleRule(substituteFunction, new HashSet<>(Arrays.asList(nums)));
     }
 
     @Override
@@ -52,7 +57,7 @@ public class DivisibleRule implements Rule {
 
     @Override
     public String getHumanDescription() {
-        return "Substitute \'" + substituteText + "\' if divisible by " + getHumanNumList();
+        return "Substitute if divisible by " + getHumanNumList();
     }
 
     private String getHumanNumList() {

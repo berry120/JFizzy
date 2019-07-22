@@ -5,6 +5,8 @@
  */
 package org.berry.fizzbuzz;
 
+import java.util.function.Function;
+
 /**
  *
  * @author Michael
@@ -13,13 +15,13 @@ public interface Rule {
     
     boolean matches(int n);
     
-    String getSubstituteText();
+    Function<Integer, String> getSubstituteFunction();
 
     String getHumanDescription();
     
     default String substitute(int n) {
         if (matches(n)) {
-            return getSubstituteText();
+            return getSubstituteFunction().apply(n);
         } else {
             return Integer.toString(n);
         }
