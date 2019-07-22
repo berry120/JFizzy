@@ -13,9 +13,17 @@ public interface Rule {
     
     boolean matches(int n);
     
-    String substitute(int n);
-    
+    String getSubstituteText();
+
     String getHumanDescription();
+    
+    default String substitute(int n) {
+        if (matches(n)) {
+            return getSubstituteText();
+        } else {
+            return Integer.toString(n);
+        }
+    }
     
     default boolean alreadyCoveredBy(Rule anotherRule) { return this.equals(anotherRule); }
     

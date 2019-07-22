@@ -22,12 +22,12 @@ import lombok.Getter;
 public class DivisibleRule implements Rule {
 
     @Getter
-    private final String substitute;
+    private final String substituteText;
     @Getter
     private final Set<Integer> nums;
 
-    private DivisibleRule(String substitute, Set<Integer> nums) {
-        this.substitute = substitute;
+    private DivisibleRule(String substituteText, Set<Integer> nums) {
+        this.substituteText = substituteText;
         this.nums = Collections.unmodifiableSet(nums);
     }
 
@@ -43,15 +43,6 @@ public class DivisibleRule implements Rule {
     }
 
     @Override
-    public String substitute(int n) {
-        if (matches(n)) {
-            return substitute;
-        } else {
-            return Integer.toString(n);
-        }
-    }
-
-    @Override
     public boolean alreadyCoveredBy(Rule rule) {
         return Optional.of(rule)
                 .filter(r -> r instanceof DivisibleRule)
@@ -61,7 +52,7 @@ public class DivisibleRule implements Rule {
 
     @Override
     public String getHumanDescription() {
-        return "Substitute \'" + substitute + "\' if divisible by " + getHumanNumList();
+        return "Substitute \'" + substituteText + "\' if divisible by " + getHumanNumList();
     }
 
     private String getHumanNumList() {

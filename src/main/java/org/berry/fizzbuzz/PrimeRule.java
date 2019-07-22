@@ -18,10 +18,10 @@ import lombok.Getter;
 public class PrimeRule implements Rule {
 
     @Getter
-    private final String substitute;
+    private final String substituteText;
 
-    private PrimeRule(String substitute) {
-        this.substitute = substitute;
+    private PrimeRule(String substituteText) {
+        this.substituteText = substituteText;
     }
 
     public static Rule of(String substitute) {
@@ -34,17 +34,8 @@ public class PrimeRule implements Rule {
     }
 
     @Override
-    public String substitute(int n) {
-        if (matches(n)) {
-            return substitute;
-        } else {
-            return Integer.toString(n);
-        }
-    }
-
-    @Override
     public String getHumanDescription() {
-        return "Substitute \'" + substitute + "\' if prime";
+        return "Substitute \'" + substituteText + "\' if prime";
     }
     
     @Override
