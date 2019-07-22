@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/berry120/JFizzy.svg?style=svg)](https://circleci.com/gh/berry120/JFizzy)
+
 # JFizzy
 
 JFizzy is a modern Java library for all things FizzBuzz related, allowing you to write *nice* FizzBuzz code, using a framework, like it's been written in 2019:
@@ -21,6 +23,7 @@ Rules are evaluated in the order they're specified.
 - Offers a way to retrieve the result as a `List<String>` rather than passing a `Consumer`, so you can look at that method declaration and feel all smug that you're not using it. (You're using Java 8 after all, who would use that?!)
 
 ## How do I use it?
+[Get set up with Bintray](https://bintray.com/beta/#/berry120/JFizzy?tab=packages), then:
 
 Maven:
 
