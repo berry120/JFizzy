@@ -27,10 +27,7 @@ public class FizzBuzz {
     }
 
     /**
-     * Create a new FizzBuzz object using
-     *
-     * @param rules
-     * @return
+     * Create a new FizzBuzz using a number of rules.
      */
     public static FizzBuzz of(Rule... rules) {
         return new FizzBuzz(Arrays.asList(rules));
