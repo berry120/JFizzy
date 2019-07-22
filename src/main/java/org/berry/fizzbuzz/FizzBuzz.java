@@ -60,11 +60,13 @@ public class FizzBuzz {
         }
         for (int i = 1; i < rules.size(); i++) {
             Rule rule = rules.get(i);
-            rules.subList(0, i).forEach(testRule -> {
+            List<Rule> sublist = rules.subList(0, i);
+            for(int j=0 ; j<sublist.size() ; j++) {
+                Rule testRule = sublist.get(j);
                 if (rule.alreadyCoveredBy(testRule)) {
-                    throw new IllegalArgumentException("\"" + rule.getHumanDescription() + "\" will never execute, already covered by \"" + testRule.getHumanDescription() + "\"");
+                    throw new IllegalArgumentException("\"" + rule.getHumanDescription() + "\" will never execute, already covered by \"" + testRule.getHumanDescription() + "\" at position " + j);
                 }
-            });
+            }
         }
     }
 
