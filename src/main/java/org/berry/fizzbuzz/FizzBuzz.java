@@ -48,7 +48,7 @@ public class FizzBuzz {
                         i -> rules.stream()
                                 .filter(r -> r.matches(i))
                                 .findFirst()
-                                .map(r -> r.substitute(i))
+                                .flatMap(r -> r.substitute(i))
                                 .orElse(Integer.toString(i))
                 )
                 .forEach(consumer);

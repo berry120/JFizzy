@@ -5,6 +5,7 @@
  */
 package org.berry.fizzbuzz;
 
+import java.util.Optional;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -20,11 +21,11 @@ public interface Rule {
 
     String getHumanDescription();
 
-    default String substitute(int n) {
+    default Optional<String> substitute(int n) {
         if (matches(n)) {
-            return getSubstituteFunction().apply(n);
+            return Optional.of(getSubstituteFunction().apply(n));
         } else {
-            return Integer.toString(n);
+            return Optional.empty();
         }
     }
 
