@@ -1,4 +1,4 @@
-package org.berry.jfizzy;
+package com.github.berry120.jfizzy;
 
 import java.util.ArrayList;
 import java.util.Arrays;
