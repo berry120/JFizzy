@@ -28,7 +28,7 @@ Rules are evaluated in the order they're specified.
 Maven:
 
     <dependency>
-      <groupId>org.berry.jfizzy</groupId>
+      <groupId>com.github.berry120.jfizzy</groupId>
       <artifactId>JFizzy</artifactId>
       <version>0.1</version>
       <type>pom</type>
@@ -36,11 +36,11 @@ Maven:
     
 Gradle:
 
-    compile 'org.berry.jfizzy:JFizzy:0.1'
+    compile 'com.github.berry120.jfizzy:JFizzy:0.1'
     
 Ivy *(Are you serious? It's 2019! Who uses Ivy?!)*:
 
-    <dependency org="org.berry.jfizzy" name="JFizzy" rev="0.1">
+    <dependency org="com.github.berry120.jfizzy" name="JFizzy" rev="0.1">
 	    <artifact name="JFizzy" ext="pom"></artifact>
     </dependency>
 
