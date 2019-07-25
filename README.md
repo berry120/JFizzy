@@ -59,14 +59,14 @@ Ivy *(Are you serious? It's 2019! Who uses Ivy?!)*:
 	    <artifact name="JFizzy"></artifact>
     </dependency>
     
-## I don't use a dependency management system! Where do I get the jar?
+## Help, I don't use a dependency management system!
 
-Never mind 2019, are we in... 2009?! Clone the repo and build it yourself.
+Never mind 2019, are we in... 2009?! Clone the repo and build it yourself :-)
 
 ## Requirements
 
 JFizzy requires Java 8+. As everyone knows, all non-legacy code now uses Java 8, and no-one has yet migrated to Java 9+.
     
-## Is this a joke?
+## This seems like a joke
 
 No, this is deadly serious. It's so serious, that we may even unit test it at some point and pretend we've done TDD.
