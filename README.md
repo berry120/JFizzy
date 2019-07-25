@@ -2,13 +2,33 @@
 
 # JFizzy
 
-JFizzy is a modern Java library for all things FizzBuzz related, allowing you to write *nice* FizzBuzz code, using a framework, like it's been written in 2019:
+JFizzy is a modern Java library for all things FizzBuzz related, allowing you to write *nice* FizzBuzz code, using a framework, like it's been written in 2019.
+
+JFizzy can cope with the "standard" FizzBuzz style questions, as well as weird & wonderful variants.
+
+ > Write a standard FizzBuzz:
 
     FizzBuzz.of(
             DivisibleRule.ofAll("FizzBuzz", 3, 5),
             DivisibleRule.ofAll("Fizz", 3),
             DivisibleRule.ofAll("Buzz", 5)
     ).forEachInRange(1, 100, System.out::println);
+    
+  > If I write a standard FizzBuzz but between 200 and 300 inclusive, and with the exception that *any* prime number should output "Pop" instead, what's the total length of the string from concatenating all the non-numeric outputs?
+  
+    System.out.println(
+            FizzBuzz.of(
+                    PrimeRule.of("Pop"),
+                    DivisibleRule.ofAll("FizzBuzz", 3, 5),
+                    DivisibleRule.ofAll("Fizz", 3),
+                    DivisibleRule.ofAll("Buzz", 5)
+            )
+                    .getResultInRange(200, 301)
+                    .stream()
+                    .filter(s -> !s.matches("\\d+"))
+                    .mapToInt(s -> s.length())
+                    .sum()
+    );
     
 Rules are evaluated in the order they're specified.
     
