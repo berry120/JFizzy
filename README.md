@@ -30,7 +30,6 @@ Maven:
       <groupId>com.github.berry120.jfizzy</groupId>
       <artifactId>JFizzy</artifactId>
       <version>0.1</version>
-      <type>pom</type>
     </dependency>
     
 Gradle:
@@ -40,7 +39,7 @@ Gradle:
 Ivy *(Are you serious? It's 2019! Who uses Ivy?!)*:
 
     <dependency org="com.github.berry120.jfizzy" name="JFizzy" rev="0.1">
-	    <artifact name="JFizzy" ext="pom"></artifact>
+	    <artifact name="JFizzy"></artifact>
     </dependency>
     
 ## I don't use a dependency management system! Where do I get the jar?
