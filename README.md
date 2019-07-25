@@ -22,9 +22,7 @@ JFizzy can cope with the "standard" FizzBuzz style questions, as well as weird &
                     DivisibleRule.ofAll("FizzBuzz", 3, 5),
                     DivisibleRule.ofAll("Fizz", 3),
                     DivisibleRule.ofAll("Buzz", 5)
-            )
-                    .getResultInRange(200, 301)
-                    .stream()
+            ).getResultInRange(200, 301).stream()
                     .filter(s -> !s.matches("\\d+"))
                     .mapToInt(s -> s.length())
                     .sum()
@@ -36,11 +34,10 @@ Rules are evaluated in the order they're specified.
 
 - Uses static factory methods that start with `of`, because no-one likes using public constructors in 2019;
 - Uses lombok internally, because no-one should have to write any boilerplate these days;
-- Allows you to pass a Java 8 `Consumer` to consume the list of results, because iterating over it is very old-hat;
+- Allows you to pass a Java 8 `Consumer` to consume the list of results, because everyone knows the best Java programmers always use Consumers;
 - Allows other rules to be specified (such as a `PrimeRule`), to try to anticipate any additional ~interview~ requirements that may spontaneously appear after the initial implementation;
 - Rules can take a `Function<Integer, String>` as a parameter instead of a raw string, enabling you to use the number in your output should ~the interviewer~ you require it;
 - Offers some degree of checking if you've got your rules in the wrong order. This can't be *guaranteed* in all cases of course, but it should catch most trivial cases.
-- Offers a way to retrieve the result as a `List<String>` rather than passing a `Consumer`, so you can look at that method declaration and feel all smug that you're not using it. (You're using Java 8 after all, who would use that?!)
 
 ## How do I use it?
 
@@ -64,11 +61,11 @@ Ivy *(Are you serious? It's 2019! Who uses Ivy?!)*:
     
 ## I don't use a dependency management system! Where do I get the jar?
 
-Never mind 2019, what year is it... 2009?! You want a standalone jar, clone it and build it yourself.
+Never mind 2019, are we in... 2009?! Clone the repo and build it yourself.
 
 ## Requirements
 
-JFizzy requires Java 8+. As everyone knows, all non-legacy code now uses Java 8, and no-one has yet migrated beyond it.
+JFizzy requires Java 8+. As everyone knows, all non-legacy code now uses Java 8, and no-one has yet migrated to Java 9+.
     
 ## Is this a joke?
 
