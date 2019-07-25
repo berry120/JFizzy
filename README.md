@@ -6,7 +6,7 @@ Everyone knows that the *correct* answer to any Java problem these days is "find
 
 JFizzy can cope with the "standard" FizzBuzz style questions, as well as weird & wonderful variants.
 
- > Write a standard FizzBuzz:
+ >Write a standard FizzBuzz:
 
     FizzBuzz.of(
             DivisibleRule.ofAll("FizzBuzz", 3, 5),
@@ -14,7 +14,7 @@ JFizzy can cope with the "standard" FizzBuzz style questions, as well as weird &
             DivisibleRule.ofAll("Buzz", 5)
     ).forEachInRange(1, 100, System.out::println);
     
-  > If I write a standard FizzBuzz but between 200 and 300 inclusive, and with the exception that *any* prime number should output "Pop" instead, what's the total length of the string from concatenating all the non-numeric outputs?
+  >If I write a standard FizzBuzz but between 200 and 300 inclusive, and with the exception that *any* prime number should output "Pop" instead, what's the total length of the string from concatenating all the non-numeric outputs?
   
     System.out.println(
             FizzBuzz.of(
