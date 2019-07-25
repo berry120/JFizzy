@@ -39,7 +39,7 @@ Rules are evaluated in the order they're specified.
 - Rules can take a `Function<Integer, String>` as a parameter instead of a raw string, enabling you to use the number in your output should ~the interviewer~ you require it;
 - Offers some degree of checking if you've got your rules in the wrong order. This can't be *guaranteed* in all cases of course, but it should catch most trivial cases.
 
-## How do I use it?
+## Importing
 
 Maven:
 
@@ -59,7 +59,7 @@ Ivy *(Are you serious? It's 2019! Who uses Ivy?!)*:
 	    <artifact name="JFizzy"></artifact>
     </dependency>
     
-## Help, I don't use a dependency management system!
+## Help, I don't use a dependency management system
 
 Never mind 2019, are we in... 2009?! Clone the repo and build it yourself :-)
 
