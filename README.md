@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/berry120/JFizzy.svg?style=svg)](https://circleci.com/gh/berry120/JFizzy)
+[![CircleCI](https://circleci.com/gh/berry120/JFizzy.svg?style=svg)](https://circleci.com/gh/berry120/JFizzy) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/cf82dbf02df9437d95c26377ff937127)](https://www.codacy.com/app/berry120/JFizzy?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=berry120/JFizzy&amp;utm_campaign=Badge_Grade)
 
 # JFizzy
 
