@@ -2,7 +2,7 @@
 
 # JFizzy
 
-JFizzy is a modern Java library for all things FizzBuzz related, allowing you to write *nice* FizzBuzz code, using a framework, like it's been written in 2019.
+Everyone knows that the *correct* answer to any Java problem these days is "find a library that does it". Tasked with writing a FizzBuzz style application ~in an interview~? JFizzy is a modern Java 8 library for all things FizzBuzz related, allowing you to write good-looking, modern FizzBuzz code, that feels & looks like it's been written in 2019.
 
 JFizzy can cope with the "standard" FizzBuzz style questions, as well as weird & wonderful variants.
 
